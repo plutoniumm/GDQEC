@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    "cache.py": true,
+    // "old/": true,
+    // "data/": true,
+  }
+}
