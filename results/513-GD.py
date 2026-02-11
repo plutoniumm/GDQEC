@@ -1,5 +1,8 @@
+import sys
+sys.path.append("../")
+
 from qudit.algo.statiliser import GramSchmidt
-from stab import Grader, np, Code
+from lib.GD import Grader, np, Code
 from torch.optim import Adam
 import torch as pt
 import matplotlib.pyplot as plt
@@ -9,9 +12,9 @@ np.set_printoptions(precision=4, suppress=True, linewidth=10000)
 F32, C64 = pt.float32, np.complex64
 toNP = lambda x: x.detach().cpu().numpy()
 
-steps, lr = 20, 5e-3
+steps, lr = 100, 1e-4
 
-G = Grader("513", "Pauli", y=0.01)
+G = Grader("513", "Pauli", y=0.1)
 codes = G.codes.copy()
 
 lenc, lenw = len(codes), len(codes[0])
@@ -41,7 +44,7 @@ for step in range(steps):
         opt.zero_grad(set_to_none=True)
 
         G.codes = toNP(GramSchmidt(cre + 1j * cim))
-        if step >= 19:
+        if (step % 20) == 0:
             print(G.codes.round(4))
 
         G.base = G.get_fid(G.codes)

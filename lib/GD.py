@@ -1,9 +1,9 @@
 from qudit.noise import Recovery as R
 from qudit.tools import Fidelity as F
-from lib.kraus import Krauser
-from lib.codes import Code
 import numpy.linalg as LA
 from cache import Cache
+from .kraus import Krauser
+from .codes import Code
 import numpy as np
 
 

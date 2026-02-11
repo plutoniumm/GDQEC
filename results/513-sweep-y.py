@@ -1,5 +1,8 @@
+import sys
+sys.path.append("../")
+
 import matplotlib.pyplot as plt
-from stab import Grader, np
+from lib.GD import Grader, np
 
 np.set_printoptions(precision=4, suppress=True, linewidth=10000)
 
