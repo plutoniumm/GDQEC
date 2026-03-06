@@ -1,4 +1,4 @@
-from stab import Grader, np, Code
+from lib.GD import Grader, np, Code
 from torch.optim import Adam
 import numpy.linalg as LA
 import torch as pt
